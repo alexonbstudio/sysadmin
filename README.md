@@ -2,8 +2,15 @@
  Recommend for sysadmin @alexonbstudio - Desktop/Server
 
 ## Automate
++ crontab
 ## Protect from attack
++ iptable & fail2ban
 ## Scan virus
++ clamav
+## Software require
++ iptable
++ clamav
++ fail2ban
 
 
 ### Copyright &copy; AlexonbStudio for freedom
