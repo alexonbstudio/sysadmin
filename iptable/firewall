@@ -7,7 +7,7 @@ iptables -t filter -F
 iptables -t filter -X
 
 #Autorisé une IP exeptionnel
-iptables -t filter -A INPUT -s adresse_ip -j ACCEPT
+iptables -A INPUT -s 123.123.123.123 -j ACCEPT
 
 # Interdire toute connexion entrante et sortante
 iptables -t filter -P INPUT DROP
@@ -15,44 +15,32 @@ iptables -t filter -P FORWARD DROP
 iptables -t filter -P OUTPUT DROP
 
 #Reject all
-iptables -t filter -A INPUT -j DROP
+iptables -A INPUT -j DROP
 
 # --- Fail2ban
-iptables -t filter -N fail2ban-nginx
-#iptables -t filter -N fail2ban-apache
+iptables -t filter -N fail2ban-nginx-http-auth
 iptables -t filter -N fail2ban-nginx-badbots
-#iptables -t filter -N fail2ban-apache-badbots
 iptables -t filter -N fail2ban-nginx-nohome
-#iptables -t filter -N fail2ban-apache-nohome
 iptables -t filter -N fail2ban-nginx-noscript
-#iptables -t filter -N fail2ban-apache-noscript
 iptables -t filter -N fail2ban-nginx-overflows
-#iptables -t filter -N fail2ban-apache-overflows
-iptables -t filter -N fail2ban-ssh
+iptables -t filter -N fail2ban-php-url-fopen
+iptables -t filter -N fail2ban-fail2ban-sshd
 
 iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-nohome
-#iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-apache-nohome
 iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-badbots
-#iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-apache-badbots
 iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-overflows
-#iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-apache-overflows
 iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-noscript
-#iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-apache-noscript
-iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx
-#iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-apache
-iptables -t filter -A INPUT -p tcp -m multiport --dports 22 -j fail2ban-ssh
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-http-auth
+iptables -t filter -A INPUT -p tcp -m multiport --dports 22 -j fail2ban-sshd
+iptables -t filter -A INPUT -p tcp -m multiport --dports 22 -j fail2ban-php-url-fopen
 
-iptables -t filter -A fail2ban-nginx -j RETURN
-#iptables -t filter -A fail2ban-apache -j RETURN
+iptables -t filter -A fail2ban-nginx-http-auth -j RETURN
 iptables -t filter -A fail2ban-nginx-badbots -j RETURN
-#iptables -t filter -A fail2ban-apache-badbots -j RETURN
 iptables -t filter -A fail2ban-nginx-nohome -j RETURN
-#iptables -t filter -A fail2ban-apache-nohome -j RETURN
 iptables -t filter -A fail2ban-nginx-noscript -j RETURN
-#iptables -t filter -A fail2ban-apache-noscript -j RETURN
 iptables -t filter -A fail2ban-nginx-overflows -j RETURN
-#iptables -t filter -A fail2ban-apache-overflows -j RETURN
-iptables -t filter -A fail2ban-ssh -j RETURN
+iptables -t filter -A fail2ban-sshd -j RETURN
+iptables -t filter -A fail2ban-php-url-fopen -j RETURN
 
 # Ne pas casser les connexions etablies
 iptables -t filter -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
@@ -84,8 +72,3 @@ iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT
 iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
 
 #AJouter les autres règle IPTABLE ici
-
-
-########
-# iptables -A INPUT -s adresse_ip -j DROP #bannir une IP
-# iptables -A INPUT -s adresse_ip -j ACCEPT #autorisé une IP
