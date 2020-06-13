@@ -1,10 +1,11 @@
 @weekly rm /var/log/nginx/*.log
 #@weekly rm /var/log/apache*/*.log
 @weekly apt update && apt upgrade -y
-@weekly systemctl stop clamav-freshclam && freshclam && systemctl start clamav-freshclam
-#* * 2 */3 * apt autoremove && apt clean
-#* * 2 */3 * apt clean
-@monthly clamscan --infected --recursive --remove / >> /home/alexonbstudio/finale-scan.txt
+@weekly apt-get update && apt-get upgrade -y
+@weekly systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam
+* * 2 */3 * apt autoremove && apt clean
+* * 2 */3 * apt clean
+@monthly clamscan --infected --recursive --remove / >> /tmp/scan.txt
 #* * 2 */3 * reboot now
 
 
