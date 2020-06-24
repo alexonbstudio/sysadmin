@@ -1,12 +1,13 @@
-@weekly rm /var/log/nginx/*.log
-#@weekly rm /var/log/apache*/*.log
+@weekly rm /var/log/nginx/*.log #NGINX
+@weekly rm /var/log/apache*/*.log #Apache
 @weekly apt update && apt upgrade -y
 @weekly apt-get update && apt-get upgrade -y
-@weekly systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam
+@daily systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam
 * * 2 */3 * apt autoremove && apt clean
 * * 2 */3 * apt clean
-@monthly clamscan --infected --recursive --remove / >> /tmp/scan.txt
-#* * 2 */3 * reboot now
+#@monthly clamscan --infected --recursive --remove / >> /tmp/scan.txt not work
+* * * */6 * reboot now # reboot every 6month
+@reboot /etc/init.d/firewall
 
 
 ###########################
