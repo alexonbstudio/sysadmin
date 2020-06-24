@@ -1,6 +1,11 @@
 # sysadmin - security - automated (Debian/Ubuntu Latest Vesion)
  Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
+## secure SSH folder sshd
+	nano /etc/ssh/sshd_config
+
++ secure-ssh.txt
+
 ## installer - Folder web-server
 
 + apache.sh (integrated certbot/fail2ban/MARIADB/ANTIVIRUS/compatible CMS Wordpress/Joomla/Drupal | FULLY PHP) 
@@ -80,6 +85,12 @@
 + manual 
 
 	clamscan --infected --recursive --remove /
+
+### TODO
+- mail
+- Mysql
+- what else again more
+
 
 ## Software require
 
