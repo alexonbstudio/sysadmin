@@ -7,7 +7,7 @@ iptables -t filter -F
 iptables -t filter -X
 
 #Autorisé une IP exeptionnel
-iptables -A INPUT -s 123.123.123.123 -j ACCEPT
+iptables -A INPUT -s 123.123.123.123 -j ACCEPT #replace your own ipv4-public (IP fix obligatoire)
 
 # Interdire toute connexion entrante et sortante
 iptables -t filter -P INPUT DROP
@@ -19,26 +19,32 @@ iptables -A INPUT -j DROP
 
 # --- Fail2ban
 iptables -t filter -N fail2ban-nginx-http-auth
-iptables -t filter -N fail2ban-nginx-badbots
 iptables -t filter -N fail2ban-nginx-nohome
+iptables -t filter -N fail2ban-nginx-noproxy
 iptables -t filter -N fail2ban-nginx-noscript
-iptables -t filter -N fail2ban-nginx-overflows
+iptables -t filter -N fail2ban-nginx-badbots
+iptables -t filter -N fail2ban-nginx-botsearch
+iptables -t filter -N fail2ban-nginx-limit-req
 iptables -t filter -N fail2ban-php-url-fopen
 iptables -t filter -N fail2ban-fail2ban-sshd
 
-iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-nohome
-iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-badbots
-iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-overflows
-iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-noscript
 iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-http-auth
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-nohome
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-noproxy
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-noscript
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-badbots
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-botsearch
+iptables -t filter -A INPUT -p tcp -m multiport --dports 80,443 -j fail2ban-nginx-limit-req
 iptables -t filter -A INPUT -p tcp -m multiport --dports 22 -j fail2ban-sshd
 iptables -t filter -A INPUT -p tcp -m multiport --dports 22 -j fail2ban-php-url-fopen
 
 iptables -t filter -A fail2ban-nginx-http-auth -j RETURN
-iptables -t filter -A fail2ban-nginx-badbots -j RETURN
+iptables -t filter -A fail2ban-nginx-noproxy -j RETURN
 iptables -t filter -A fail2ban-nginx-nohome -j RETURN
 iptables -t filter -A fail2ban-nginx-noscript -j RETURN
-iptables -t filter -A fail2ban-nginx-overflows -j RETURN
+iptables -t filter -A fail2ban-nginx-badbots -j RETURN
+iptables -t filter -A fail2ban-nginx-botsearch -j RETURN
+iptables -t filter -A fail2ban-nginx-limit-req -j RETURN
 iptables -t filter -A fail2ban-sshd -j RETURN
 iptables -t filter -A fail2ban-php-url-fopen -j RETURN
 
@@ -49,6 +55,14 @@ iptables -t filter -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 # Autoriser loopback
 iptables -t filter -A INPUT -i lo -j ACCEPT
 iptables -t filter -A OUTPUT -o lo -j ACCEPT
+
+# Autoriser ETH0 (Optional)
+#iptables -t filter -A INPUT -i eth0 -j ACCEPT
+#iptables -t filter -A OUTPUT -o eth0 -j ACCEPT
+
+# Autoriser wifi (Optional)
+#iptables -t filter -A INPUT -i wifi0 -j ACCEPT
+#iptables -t filter -A OUTPUT -o wifi0 -j ACCEPT
 
 # ICMP (Ping)
 iptables -t filter -A INPUT -p icmp -j ACCEPT
@@ -72,3 +86,12 @@ iptables -t filter -A INPUT -p tcp --dport 80 -j ACCEPT
 iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
 
 #AJouter les autres règle IPTABLE ici
+
+
+#Gaming Minecraft Server BEDROCK/PMMP here IPV4
+#iptables -A INPUT -p tcp -m tcp --dport 19132 -j ACCEPT
+#iptables -A INPUT -p udp -m udp --dport 19132 -j ACCEPT
+
+#Gaming Minecraft Server BEDROCK/PMMP here IPV6
+#iptables -A INPUT -p tcp -m tcp --dport 19133 -j ACCEPT
+#iptables -A INPUT -p udp -m udp --dport 19133 -j ACCEPT
