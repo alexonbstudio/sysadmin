@@ -1,0 +1,39 @@
+# Use for later simple by @Alexonstudio on commend-line or scrypting using simpleless systemctl
+
+
+
+########		SERVER WEB		########
+
+systemctl enable apache2
+/lib/systemd/systemd-sysv-install enable apache2
+systemctl enable nginx
+/lib/systemd/systemd-sysv-install enable nginx
+systemctl enable php*.*-fpm 
+/lib/systemd/systemd-sysv-install enable php7.4-fpm #exemple Ubuntu 20.04
+systemctl enable php*.*-cgi
+/lib/systemd/systemd-sysv-install enable php*.*-cgi
+systemctl enable php*.*
+/lib/systemd/systemd-sysv-install enable php*.*
+
+
+########		ANTIVIRUS		########
+systemctl enable clamav-freshclam
+/lib/systemd/systemd-sysv-install enable clamav-freshclam
+
+########		FAILTOBAN		########
+systemctl enable faiil2ban
+/lib/systemd/systemd-sysv-install enable faiil2ban
+
+
+#need help systemctl --help
+
+# exemple how to use
+systemctl reload nginx #exemple reload nginx
+systemctl restart nginx #exemple restart nginx
+
+
+
+
+
+
+
