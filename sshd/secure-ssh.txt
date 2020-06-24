@@ -1,0 +1,5 @@
+PermitRootLogin no         # Ne pas permettre de login en root
+AllowUsers alexonbstudio             # N'autoriser qu'un utilisateur précis
+#changé le Port SSH n'est pas une solution
+
+# replace alexonbstudio by your own
