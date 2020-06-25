@@ -1,7 +1,7 @@
 #!/bin/bash
 ##################################"
 ##
-##		SCRIPTING BY alexonbstudio
+##		SCRIPTING BY alexonbstudio NOT TESTED
 ##################################"
 
 clear
