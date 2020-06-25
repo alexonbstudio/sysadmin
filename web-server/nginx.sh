@@ -13,16 +13,13 @@ else
 	apt-get update && apt-get upgrade -y
 	apt-get install software-properties-common && add-apt-repository universe
 	echo -e "====== AUTO install NEED OPENSSL/NGINX/CERTBOT/MARIADB/ANTIVIRUS/FAIL2BAN/PHP for using CMS populare ======\n"
-	apt install curl zip unzip openssl nginx certbot python3-certbot-nginx mariadb-server php php-xml php-fpm php-cli php-curl php-mysql php-gd php-mbstring php-imagick php-intl php-xml php-zip php-cgi php-xmlrpc php-soap tidy php-tidy sqlite php-pear clamav clamav-daemon fail2ban -y
+	apt install curl zip unzip openssl nginx certbot python3-certbot-nginx mariadb-server php php-xml php-fpm php-cli php-curl php-mysql php-gd php-mbstring php-imagick php-intl php-xml php-zip php-cgi php-xmlrpc php-soap tidy php-tidy sqlite php-pear clamav clamav-daemon fail2ban net-tools -y
 	echo -e "\n====== The installation is done ======\n\n"
-	#apt purge && apt clean && apt autoremove
-<<<<<<< HEAD
-	#clear
-=======
-	
->>>>>>> b63e9ec3a81c04cad432a88568f2ea01ee6eac78
+
+
 	
 fi
+	mysql_secure_installation
 
 	echo -e "\n\nSystemctl using easier recommandation\n\n"
 	systemctl enable nginx && /lib/systemd/systemd-sysv-install enable nginx
@@ -32,8 +29,4 @@ fi
 	
 #	if [ -z php7.4 ]; then
 #		
-#	fi
-#	if [ -z ifconfig ]; then
-#		apt install net-tools -y
-
 #	fi
