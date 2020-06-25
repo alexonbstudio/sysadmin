@@ -18,6 +18,7 @@ else
 	apt install curl zip unzip openssl apache2 certbot python3-certbot-apache mariadb-server php php-xml php-fpm php-cli php-curl php-mysql php-gd php-mbstring php-imagick php-intl php-xml php-zip php-cgi php-xmlrpc php-soap tidy php-tidy sqlite php-pear clamav clamav-daemon fail2ban -y
 	echo -e "\n\n====== The installation is done ======\n\n"
 	#apt purge && apt clean && apt autoremove
+<<<<<<< HEAD
 #	clear
 	
 fi
@@ -42,3 +43,8 @@ fi
 	# Automate do the notice have
 	a2enmod proxy_fcgi setenvif ; a2enconf php7.4-fpm # ubuntu system version default
 	systemctl reload apache2
+=======
+	#clear
+	
+fi
+>>>>>>> b63e9ec3a81c04cad432a88568f2ea01ee6eac78

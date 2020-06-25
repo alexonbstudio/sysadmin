@@ -16,7 +16,11 @@ else
 	apt install curl zip unzip openssl nginx certbot python3-certbot-nginx mariadb-server php php-xml php-fpm php-cli php-curl php-mysql php-gd php-mbstring php-imagick php-intl php-xml php-zip php-cgi php-xmlrpc php-soap tidy php-tidy sqlite php-pear clamav clamav-daemon fail2ban -y
 	echo -e "\n====== The installation is done ======\n\n"
 	#apt purge && apt clean && apt autoremove
+<<<<<<< HEAD
 	#clear
+=======
+	
+>>>>>>> b63e9ec3a81c04cad432a88568f2ea01ee6eac78
 	
 fi
 
