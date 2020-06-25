@@ -1,6 +1,16 @@
 # sysadmin - security - automated (Debian/Ubuntu Latest Vesion)
  Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
+## secure resolv both ipv4 & ipv6 DNS Speed internet
+	
+	#recommend Root access
+	mdkir -p /tmp && cd /tmp
+	curl -O https://github.com/alexonbstudio/sysadmin/raw/master/resolv/speedweb-cloudflare.sh
+	chmod +x speedweb-cloudflare.sh
+	bash speedweb-cloudflare.sh
+
++ speedweb-cloudflare.sh
+
 ## secure SSH folder sshd
 	nano /etc/ssh/sshd_config
 
