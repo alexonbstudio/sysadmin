@@ -34,6 +34,7 @@ fi
 	
 	
 	###### WAITING FOR PHP7.4 ubuntu / PHP7.3 DEBIAN DIFFF
+# TODO
 #	if [ -z php7.4 ]; then
 #		
 #	fi
@@ -45,6 +46,9 @@ fi
 	mysql_secure_installation
 
 
+
+#### now configuration DB sql
+# TODO
 
 
 
