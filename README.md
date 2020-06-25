@@ -77,27 +77,62 @@
 	curl -o jail.local https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/fail2ban/jail-edited-nginx.conf
 	chmod +x jail.local
 
-## IPtables for apache2
+
+## IPv4 folder iptables	
+	
+### IPtables for apache2
 
 	cd /etc/init.d/
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptable/firewall-apache.sh
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptables/firewall-apache.sh
 	mv firewall-apache.sh firewall
 	nano firewall #recommend change  ip: 123.123.123.123 to your own IP-public
 	chmod +x firewall
 	update-rc.d firewall defaults
 
-## IPtables for nginx
+### IPtables for nginx
 
 	cd /etc/init.d/
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptable/firewall-nginx.sh
-	mv firewall-nginx.sh firewall
-	nano firewall #recommend change ip: 123.123.123.123 to your own IP-public
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptables/firewall-nginx.sh
+	mv firewall-nginx.sh firewall4
+	nano firewall4 #recommend change ip: 123.123.123.123 to your own IP-public
+	chmod +x firewall4
+	update-rc.d firewall4 defaults
+
+##### Then executing
+	/etc/init.d/firewall4
+
+### want ip6tables
+
+	apt install -y ip6tables
+
+## IPv6 folder ip6tables
+
+### IP6tables for apache2
+
+	cd /etc/init.d/
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ip6tables/firewall-apache.sh
+	mv firewall-apache.sh firewall
+	nano firewall #recommend change  ip: 1234:1234:1234:1234:1234:1234 to your own IP-public
 	chmod +x firewall
 	update-rc.d firewall defaults
 
-#### Then executing
-	/etc/init.d/firewall
+### IP6tables for nginx
+
+	cd /etc/init.d/
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ip6tables/firewall-nginx.sh
+	mv firewall-nginx.sh firewall6
+	nano firewall #recommend change  ip: 1234:1234:1234:1234:1234:1234 to your own IP-public
+	chmod +x firewall6
+	update-rc.d firewall6 defaults
+
+##### Then executing
 	
+	/etc/init.d/firewall6
+	
+##### DONE IPtables & IP6tables
+
+	iptables-persistent
+	dpkg-reconfigure iptables-persistent
 
 ## Automate folder crontab 
 
