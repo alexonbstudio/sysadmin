@@ -1,6 +1,6 @@
 #!/bin/bash
 clear 
-if [ ${whoami} != "root"  ]; then
+if [ ${whoami} != "root" || $USER = "root"  ]; then
 	sudo -i 
 	apt-get update && apt-get upgrade -y
 	apt-get install software-properties-common && add-apt-repository universe
@@ -10,6 +10,7 @@ if [ ${whoami} != "root"  ]; then
 	#apt purge && apt clean && apt autoremove
 	#clear
 else
+	sudo -i
 	apt-get update && apt-get upgrade -y
 	apt-get install software-properties-common && add-apt-repository universe
 	echo -e "====== AUTO install NEED OPENSSL/NGINX/CERTBOT/MARIADB/ANTIVIRUS/FAIL2BAN/PHP for using CMS populare ======\n"

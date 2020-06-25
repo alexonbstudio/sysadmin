@@ -1,6 +1,6 @@
 #!/bin/bash
 clear 
-if [ ${whoami} != "root"  ]; then
+if [ ${whoami} != "root" || $USER = "root"  ]; then
 	sudo -i 
 	apt-get update && apt-get upgrade -y
 	apt-get install software-properties-common && add-apt-repository universe
