@@ -10,6 +10,8 @@
 	bash speedweb-cloudflare.sh
 
 + speedweb-cloudflare.sh
++ speedweb-cloudflare-block-malware.sh
++ speedweb-cloudflare-block-malware-and-adult-content.sh
 
 ## secure SSH folder sshd
 	nano /etc/ssh/sshd_config
