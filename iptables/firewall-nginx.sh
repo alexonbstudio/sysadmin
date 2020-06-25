@@ -87,6 +87,9 @@ iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
 
 #AJouter les autres règle IPTABLE ici
 
+########
+# iptables -A INPUT -s adresse_ip -j DROP #bannir une IP
+# iptables -A INPUT -s adresse_ip -j ACCEPT #autorisé une IP
 
 #Gaming Minecraft Server BEDROCK/PMMP here IPV4
 #iptables -A INPUT -p tcp -m tcp --dport 19132 -j ACCEPT
