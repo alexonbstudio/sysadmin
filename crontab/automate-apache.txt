@@ -1,0 +1,15 @@
+
+@weekly rm -f /var/log/apache*/*.log #Apache
+@weekly apt update && apt upgrade -y
+@weekly apt-get update && apt-get upgrade -y
+@daily systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam
+* * 2 */3 * apt purge && apt autoremove && apt clean
+* * * */6 * reboot now # reboot every 6month
+#@reboot /etc/init.d/firewall
+
+
+###########################
+#
+#	Your need to do (sudo -i) - before use (crontab -e)
+#
+###########################
