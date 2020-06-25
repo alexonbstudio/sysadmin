@@ -1,0 +1,15 @@
+mysql -u root -p
+CREATE USER NewsUser@'localhost' identified by 'NewsUser-password'; # create DB user
+GRANT ALL PRIVILEGES ON *.* to NewsUser@'localhost'; # attribute all privileges on all <DB-Name>.<DB-USER> to the NewsUser
+FLUSH PRIVILEGES; #reflrech & clear
+EXIT; #quiet
+
+
+#then create DATABASE name
+mysqladmin -u root -p create <DB-Name>
+#OR
+mysql -u root -p
+CREATE DATABASE wordpress DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci; # create DB name
+GRANT ALL ON wordpress.* TO 'WPNewsUser'@'localhost' IDENTIFIED BY 'WPNews-password'; # attribute all grante All just 1 <DB-Name>
+FLUSH PRIVILEGES; #reflrech & clear
+EXIT; #quiet
