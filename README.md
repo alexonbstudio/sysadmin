@@ -1,6 +1,17 @@
 # sysadmin - security - automated (Debian/Ubuntu Latest Vesion)
  Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
+
+## change hostname & host automate for domain name | folder host&name
+
+	#recommend Root access
+	mdkir -p /tmp && cd /tmp
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/host&name/automate-(sub)domain.sh
+	chmod +x automate-(sub)domain.sh
+	bash automate-(sub)domain.sh
+	
++ automate-(sub)domain.sh
+
 ## secure resolv both ipv4 & ipv6 DNS Speed internet
 	
 	#recommend Root access
@@ -29,7 +40,6 @@
 	
 	+ PHP*.*
 	+ PHP*.*-fpm
-	+ PHP*.*-cgi
 	+ Apache2
 	+ Nginx
 
@@ -38,14 +48,38 @@
 - easy-to-use-later.txt
 
 
+## fail2ban forlder
 
+	#after folder then on filter.d is exemple
+	cp jail.conf jail-bak.local
+
++ jail.bak.local
++ jail-edited-apache.conf
++ jail-edited-nginx.conf
+
+### APACHE custom Jail.local
+
+	#then
+	cd /etc/fail2ban/
+	rm -f jail.local
+	curl -o jail.local https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/fail2ban/jail-edited-apache.conf
+	chmod +x jail.local
+	
+### Nginx custom Jail.local
+
+	#then
+	cd /etc/fail2ban/
+	rm -f jail.local
+	curl -o jail.local https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/fail2ban/jail-edited-nginx.conf
+	chmod +x jail.local
 
 ## IPtables for apache2
 
+	cd /etc/init.d/
 	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptable/firewall-apache.sh
 	mv firewall-apache.sh firewall
-	chmod +x firewall
 	nano firewall #recommend change  ip: 123.123.123.123 to your own IP-public
+	chmod +x firewall
 	update-rc.d firewall defaults
 
 ## IPtables for nginx
@@ -53,8 +87,8 @@
 	cd /etc/init.d/
 	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptable/firewall-nginx.sh
 	mv firewall-nginx.sh firewall
-	chmod +x firewall
 	nano firewall #recommend change ip: 123.123.123.123 to your own IP-public
+	chmod +x firewall
 	update-rc.d firewall defaults
 
 #### Then executing
@@ -78,18 +112,6 @@
 	uname -r
 	apt install -y ip6tables iptables-persistent
 	#Need upgrade your kernel if ip6tables not works
-
-## fail2ban forlder
-
-	#after folder then on filter.d is exemple
-	cp jail.conf jail.local
-
-+ jail.local
-
-	#edited the some recommendation
-	+ ignoreip
-	+ maxretry
-	+ enable = true (sshd)
 
 ## Scan virus
 
