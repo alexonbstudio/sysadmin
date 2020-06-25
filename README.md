@@ -5,7 +5,7 @@
 	
 	#recommend Root access
 	mdkir -p /tmp && cd /tmp
-	curl -O https://github.com/alexonbstudio/sysadmin/raw/master/resolv/speedweb-cloudflare.sh
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/resolv/speedweb-cloudflare.sh
 	chmod +x speedweb-cloudflare.sh
 	bash speedweb-cloudflare.sh
 
@@ -42,7 +42,7 @@
 
 ## IPtables for apache2
 
-	curl -O https://github.com/alexonbstudio/sysadmin/raw/master/iptable/firewall-apache.sh
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptable/firewall-apache.sh
 	mv firewall-apache.sh firewall
 	chmod +x firewall
 	nano firewall #recommend change  ip: 123.123.123.123 to your own IP-public
@@ -51,7 +51,7 @@
 ## IPtables for nginx
 
 	cd /etc/init.d/
-	curl -O https://github.com/alexonbstudio/sysadmin/raw/master/iptable/firewall-nginx.sh
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptable/firewall-nginx.sh
 	mv firewall-nginx.sh firewall
 	chmod +x firewall
 	nano firewall #recommend change ip: 123.123.123.123 to your own IP-public
