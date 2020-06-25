@@ -1,5 +1,9 @@
-
 @weekly rm -f /var/log/apache*/*.log #Apache
+@monthly rm -rf /var/log/*.log
+@monthly rm -rf /var/log/apt/*.log
+@monthly rm -rf /var/log/clamav/*.log
+@monthly rm -rf /var/log/journal/*.log
+@monthly rm -rf /var/log/letsencrypt/*.log
 @weekly apt update && apt upgrade -y
 @weekly apt-get update && apt-get upgrade -y
 @daily systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam
