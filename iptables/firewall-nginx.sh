@@ -92,6 +92,3 @@ iptables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
 #iptables -A INPUT -p tcp -m tcp --dport 19132 -j ACCEPT
 #iptables -A INPUT -p udp -m udp --dport 19132 -j ACCEPT
 
-#Gaming Minecraft Server BEDROCK/PMMP here IPV6
-#iptables -A INPUT -p tcp -m tcp --dport 19133 -j ACCEPT
-#iptables -A INPUT -p udp -m udp --dport 19133 -j ACCEPT
