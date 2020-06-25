@@ -8,7 +8,11 @@
 	mdkir -p /tmp && cd /tmp
 	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/host&name/automate-(sub)domain.sh
 	chmod +x automate-(sub)domain.sh
-	bash automate-(sub)domain.sh
+	#BASH NOT TESTED
+	bash automate-(sub)domain.sh domain=site.tld
+	bash automate-(sub)domain.sh ipv4local=10.10.10.10 domain=site.tld
+	bash automate-(sub)domain.sh ipv6local=1111:1:0:0::1 domain=site.tld
+	bash automate-(sub)domain.sh quit
 	
 + automate-(sub)domain.sh
 
