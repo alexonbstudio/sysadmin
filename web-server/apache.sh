@@ -73,11 +73,7 @@ fi
 
 
 
-
-
-
-
-
-
-
+################			DONE		################
+#deteled old on tmp folder
+rm -rf /tmp/*
 
