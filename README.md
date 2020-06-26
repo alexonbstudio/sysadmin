@@ -119,17 +119,15 @@
 ### IPtables for apache2
 
 	cd /etc/init.d/
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptables/firewall-apache.sh
-	mv firewall-apache.sh firewall
-	nano firewall #recommend change  ip: 123.123.123.123 to your own IP-public
-	chmod +x firewall
+	curl -o firewall4 https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptables/firewall-apache.sh
+	nano firewall4 #recommend change  ip: 123.123.123.123 to your own IP-public
+	chmod +x firewall4
 	update-rc.d firewall defaults
 
 ### IPtables for nginx
 
 	cd /etc/init.d/
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptables/firewall-nginx.sh
-	mv firewall-nginx.sh firewall4
+	curl -o firewall4 https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/iptables/firewall-nginx.sh
 	nano firewall4 #recommend change ip: 123.123.123.123 to your own IP-public
 	chmod +x firewall4
 	update-rc.d firewall4 defaults
