@@ -1,7 +1,13 @@
-nano /etc/ssh/sshd_config
+systemctl enable ssh && /lib/systemd/systemd-sysv-install enable ssh
+.nano /etc/ssh/sshd_config
 ******
+PasswordAuthentification no
+UsePAM no
+ChallengeResponseAuthentication no
 PermitRootLogin no         # Ne pas permettre de login en root
 AllowUsers alexonbstudio             # N'autoriser qu'un utilisateur précis
 #changé le Port SSH n'est pas une solution
 *******
 /etc/init.d/ssh restart
+#Or 
+systemctl restart ssh
