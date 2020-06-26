@@ -1,5 +1,5 @@
 # sysadmin - security - automated (Debian/Ubuntu Latest Version)
-#last update 26/06/2020 @ 10:00PM Europe/Paris
+#last update 26/06/2020 @ 10:20PM Europe/Paris
  Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 
@@ -144,17 +144,15 @@
 ### IP6tables for apache2
 
 	cd /etc/init.d/
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ip6tables/firewall-apache.sh
-	mv firewall-apache.sh firewall
+	curl -o firewall6 https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ip6tables/firewall-apache.sh
 	nano firewall #recommend change  ip: 1234:1234:1234:1234:1234:1234 to your own IP-public
-	chmod +x firewall
+	chmod +x firewall6
 	update-rc.d firewall defaults
 
 ### IP6tables for nginx
 
 	cd /etc/init.d/
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ip6tables/firewall-nginx.sh
-	mv firewall-nginx.sh firewall6
+	curl -o firewall6 https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ip6tables/firewall-nginx.sh
 	nano firewall #recommend change  ip: 1234:1234:1234:1234:1234:1234 to your own IP-public
 	chmod +x firewall6
 	update-rc.d firewall6 defaults
@@ -194,9 +192,9 @@
 	clamscan --infected --recursive --remove /
 
 ### TODO
-- Mysql fail2ban
+- Mysql fail2ban & iptables/ip6tables
 - mysql create script automate DBNAME/DBUSER
-- mail (Dovecot/Postfix) fail2ban
+- mail (Dovecot/Postfix) fail2ban & iptables/ip6tables
 - Certbot
 - what else again more
 - final 1 full scripting
