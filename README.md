@@ -106,12 +106,12 @@
 	curl -o jail.local https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/fail2ban/jail-edited-nginx.conf
 	chmod +x jail.local
 
-### After create folder fail2ban/filder.d
+### After access folder fail2ban/filder.d [Definition]
 
-+ nginx
-+ apache
++ nginx #done
++ apache #done
 + mysql
-+ ssh
++ ssh #done
 
 
 ## IPv4 folder iptables	
