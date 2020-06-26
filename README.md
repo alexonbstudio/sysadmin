@@ -1,4 +1,5 @@
-# sysadmin - security - automated (Debian/Ubuntu Latest Vesion)
+# sysadmin - security - automated (Debian/Ubuntu Latest Version)
+#last update 26/06/2020 @ 10:00PM Europe/Paris
  Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 
@@ -29,6 +30,7 @@
 + speedweb-cloudflare-block-malware-and-adult-content.sh
 
 ## secure SSH folder sshd
+
 	nano /etc/ssh/sshd_config
 
 + secure-ssh.txt
@@ -40,16 +42,43 @@
 	
 	#after to install you need just to configure IT's from
 	
-		cd /etc/
+	cd /etc/
 	
-	+ PHP*.*
-	+ PHP*.*-fpm
-	+ Apache2
-	+ Nginx
++ PHP*.*
++ PHP*.*-fpm
+
+	nano /etc/php/7.4/fpm/php.ini
+	cgi.fix_pathinfo = 0 #uncomment this
+
++ Apache2
++ Nginx
+
+	nano /etc/nginx/nginx.conf
+	server_tokens off; #uncomment this
+	cp /etc/nginx/sites-available/default /etc/nginx/sites-available/alexonbstudio.tld
+	rm -rf /etc/nginx/sites-available/default
+	nano /etc/nginx/sites-available/alexonbstudio.tld
+	fastcgi_pass unix:/run/php/php7.4-fpm.sock; #uncomment this between Server{...} => on location 
+
++ Certbot SSL free
+
+	certbot --apache -d dev.alexonbstudio.fr # APACHE
+	certbot --nginx -d dev.alexonbstudio.fr #NGINX
+	certbot renew --dry-run # Test renewal
+	
++ OR SSL with Cloudflare SSL universal on CDN
+	
+	#SSL 15year Max is free to begening
+	#take public key to pem file & private key to cert file
 
 ## Enable systemctl on forlder
 
 - easy-to-use-later.txt
+
+## Mail system & secure
+
++ [Readme By Luck Smith](https://github.com/LukeSmithxyz/emailwiz/blob/master/README.md)
++ [Info URL demo by Luck Smith](https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/mail/install&secure.txt)
 
 
 ## fail2ban forlder
@@ -58,8 +87,8 @@
 	cp jail.conf jail-bak.local
 
 + jail.bak.local
-+ jail-edited-apache.conf
-+ jail-edited-nginx.conf
++ jail-edited-apache.conf #(include conf ssh/Mysql/mail)
++ jail-edited-nginx.conf #(include conf ssh/Mysql/mail)
 
 ### APACHE custom Jail.local
 
@@ -76,6 +105,13 @@
 	rm -f jail.local
 	curl -o jail.local https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/fail2ban/jail-edited-nginx.conf
 	chmod +x jail.local
+
+### After create folder fail2ban/filder.d
+
++ nginx
++ apache
++ mysql
++ ssh
 
 
 ## IPv4 folder iptables	
@@ -160,10 +196,12 @@
 	clamscan --infected --recursive --remove /
 
 ### TODO
-- mail
-- Mysql
+- Mysql fail2ban
+- mysql create script automate DBNAME/DBUSER
+- mail (Dovecot/Postfix) fail2ban
 - Certbot
 - what else again more
+- final 1 full scripting
 
 
 ## Software require
