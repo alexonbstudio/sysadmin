@@ -56,6 +56,10 @@ ip6tables -t filter -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 ip6tables -t filter -A INPUT -i lo -j ACCEPT
 ip6tables -t filter -A OUTPUT -o lo -j ACCEPT
 
+# Autoriser NAT
+ip6tables -t filter -A INPUT -i nat -j ACCEPT
+ip6tables -t filter -A OUTPUT -o nat -j ACCEPT
+
 # Autoriser ETH0 (Optional)
 #ip6tables -t filter -A INPUT -i eth0 -j ACCEPT
 #ip6tables -t filter -A OUTPUT -o eth0 -j ACCEPT
@@ -90,7 +94,3 @@ ip6tables -t filter -A INPUT -p tcp --dport 443 -j ACCEPT
 ########
 # ip6tables -A INPUT -s adresse_ip -j DROP #bannir une IP
 # ip6tables -A INPUT -s adresse_ip -j ACCEPT #autorisé une IP
-
-#Gaming Minecraft Server BEDROCK/PMMP here IPV6
-#ip6tables -A INPUT -p tcp -m tcp --dport 19133 -j ACCEPT
-#ip6tables -A INPUT -p udp -m udp --dport 19133 -j ACCEPT
