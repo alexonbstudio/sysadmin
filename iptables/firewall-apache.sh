@@ -69,6 +69,10 @@ iptables -t filter -A OUTPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
 iptables -t filter -A INPUT -i lo -j ACCEPT
 iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
+# Autoriser NAT
+iptables -t filter -A INPUT -i nat -j ACCEPT
+iptables -t filter -A OUTPUT -o nat -j ACCEPT
+
 # Autoriser ETH0 (Optional)
 #iptables -t filter -A INPUT -i eth0 -j ACCEPT
 #iptables -t filter -A OUTPUT -o eth0 -j ACCEPT
