@@ -173,7 +173,13 @@
 + automate-debian.txt 
 + automate-ubuntu.txt 
 	
-	
+
+## Firewall with UFW
+
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/ufw/*.sh
+	nano firewall-local.sh #recommend change ip: 123.123.123.123 to your own IP-public SSH
+	chmod +x *.sh
+	sh ./<name>.sh
 
 ## Protect from attack
 
@@ -194,7 +200,7 @@
 ### TODO
 - Mysql fail2ban & iptables/ip6tables
 - mysql create script automate DBNAME/DBUSER
-- mail (Dovecot/Postfix) fail2ban & iptables/ip6tables
+- mail (Dovecot/Postfix) fail2ban & iptables/ip6tables/ufw
 - Certbot
 - what else again more
 - final 1 full scripting
@@ -202,9 +208,11 @@
 
 ## Software require
 
-+ iptables
++ iptables/ip6tables or ufw
++ apache or nginx
 + clamav
 + fail2ban
++ VPN Outline (From by Google)
 + Old suggest [Protected Recommend the docs by NSA](Guide-to-the-Secure-Configuration-of-Red-Hat-Enterprise-Linux-5-by-NSA.pdf)
 
 ### Copyright &copy; AlexonbStudio for freedom
