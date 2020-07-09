@@ -1,0 +1,3 @@
+curl -O https://raw.githubusercontent.com/website-project-WP/linux-wp/master/composer.sh
+chmod -x composer.sh
+sh composer.sh
