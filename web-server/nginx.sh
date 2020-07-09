@@ -71,9 +71,16 @@ chown -R www-data:www-data /var/www/html/*
 
 
 
+#PENDING
+cd /etc/nginx/sites-available/
+cp default dev.alexonbstudio.fr
+cp default default.back
+unlink /etc/nginx/sites-enabled/default || rm -rf /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/dev.alexonbstudio.fr /etc/nginx/sites-enabled/dev.alexonbstudio.fr
 
 
 
+systemctl restart nginx
 
 
 
