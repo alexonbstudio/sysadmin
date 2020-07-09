@@ -199,7 +199,20 @@
 
 	clamscan --infected --recursive --remove /
 
+### COMPOSER
+
+	curl -O https://raw.githubusercontent.com/website-project-WP/linux-wp/master/composer.sh
+	chmod -x composer.sh
+	sh composer.sh
+
+### Website Project WP 2.0
+	
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/wp/website-project-wp.sh
+	chmod -x website-project-wp.sh
+	sh website-project-wp.sh
+
 ### TODO
+
 - Mysql fail2ban & iptables/ip6tables
 - mysql create script automate DBNAME/DBUSER
 - mail (Dovecot/Postfix) fail2ban & iptables/ip6tables/ufw
@@ -215,6 +228,7 @@
 + clamav
 + fail2ban
 + VPN Outline (From by Google)
++ composer (PHP)
 + Old suggest [Protected Recommend the docs by NSA](Guide-to-the-Secure-Configuration-of-Red-Hat-Enterprise-Linux-5-by-NSA.pdf)
 
 ### Copyright &copy; AlexonbStudio for freedom
