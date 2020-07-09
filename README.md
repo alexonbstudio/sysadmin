@@ -205,12 +205,6 @@
 	chmod -x composer.sh
 	sh composer.sh
 
-### Website Project WP 2.0
-	
-	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/wp/website-project-wp.sh
-	chmod -x website-project-wp.sh
-	sh website-project-wp.sh
-
 ### TODO
 
 - Mysql fail2ban & iptables/ip6tables
@@ -219,6 +213,29 @@
 - Certbot
 - what else again more
 - final 1 full scripting
+
+
+### Minecraft Gaming
+	
+	mkdir -p tmp && cd /tmp
+	#PENDING
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/minecraft/minecraft-bedrock.sh #BEDROCK
+	chmod +x minecraft-bedrock.sh
+	./minecraft-bedrock.sh
+	#OR
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/minecraft/minecraft-pmmp.sh #POCKETMINE
+	chmod +x minecraft-pmmp.sh
+	./minecraft-pmmp.sh
+
+
+
+## FINAL DONE
+
+### Website Project WP 2.0
+	
+	curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/wp/website-project-wp.sh
+	chmod +x website-project-wp.sh
+	sh website-project-wp.sh
 
 
 ## Software require
