@@ -1,3 +1,8 @@
+mysqladmin version
+mysqladmin -u root -p <pass>
+
+
+
 mysql -u root -p
 CREATE USER NewsUser@'localhost' identified by 'NewsUser-password'; # create DB user
 GRANT ALL PRIVILEGES ON *.* to NewsUser@'localhost'; # attribute all privileges on all <DB-Name>.<DB-group> to the NewsUser
