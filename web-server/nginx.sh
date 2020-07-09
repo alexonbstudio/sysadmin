@@ -9,7 +9,7 @@
 ##### ALLL APACHE HERE && RECOMMANDATION WEB SERVER CUSTOM LEMP
 clear 
 if [ ${whoami} != "root" || $USER = "root"  ]; then
-	sudo -i # not surly
+	#sudo -i # not surly
 	apt-get update && apt-get upgrade -y
 	apt-get install software-properties-common && add-apt-repository universe
 	echo -e "====== AUTO install NEED OPENSSL/NGINX/CERTBOT/MARIADB/ANTIVIRUS/FAIL2BAN/PHP for using CMS populare ======\n"
@@ -51,7 +51,21 @@ fi
 # TODO
 
 
+#nano /etc/php/7.4/fpm/php.ini
+#cgi.fix_pathinfo = 0 #uncomment this
+#nano /etc/nginx/nginx.conf
+#server_tokens off; #uncomment this
+#cp /etc/nginx/sites-available/default /etc/nginx/sites-available/dev.alexonbstudio.fr
+#rm -rf /etc/nginx/sites-available/default
+#nano /etc/nginx/sites-available/dev.alexonbstudio.fr
+#fastcgi_pass unix:/run/php/php7.4-fpm.sock; #uncomment this between Server{...} => on location 
 
+
+
+rm -r /var/www/html/*
+echo "HELLO WORLD INSTALL by @Alexonbstudio SYSADMIN" > /var/www/html/index.html
+chown -R www-data:www-data /var/www/html/
+chown -R www-data:www-data /var/www/html/*
 
 
 
@@ -69,3 +83,5 @@ fi
 #deteled old on tmp folder
 rm -rf /tmp/*
 
+
+exit
