@@ -6,7 +6,10 @@
 	cd /var/www/html
 	git clone https://github.com/website-project-WP/free-wp.git
 	
+	rm -rf /var/www/html/*
+	# chmod 644 /var/www/html/*
 	chown -R www-data:www-data /var/www/html/*
+	chown -R www-data:www-data /var/www/html
 	echo -e "EDIT THE FILE ON FOLDER [SITE.TLD]/configuration/sites.php\n"
 	echo -e "WITH FTP OR SFTP\n"
 	echo -e "$sites['name'] #Personal/Compagny name\n"
