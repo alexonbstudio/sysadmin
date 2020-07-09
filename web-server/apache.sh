@@ -69,6 +69,17 @@ chown -R www-data:www-data /var/www/html/*
 
 
 
+#PENDING
+cd /etc/apache2/sites-available/
+cp default dev.alexonbstudio.fr
+cp default default.back
+unlink /etc/apache2/sites-enabled/default || rm -rf /etc/apache2/sites-enabled/default
+sudo ln -s /etc/apache2/sites-available/dev.alexonbstudio.fr /etc/apache2/sites-enabled/dev.alexonbstudio.fr
+
+
+
+systemctl restart apache2
+
 
 
 
