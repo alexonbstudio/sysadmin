@@ -10,7 +10,7 @@
 ##### ALLL APACHE HERE && RECOMMANDATION WEB SERVER CUSTOM LAMP
 clear 
 if [ ${whoami} != "root" || $USER = "root"  ]; then
-	sudo -i # not surly
+	#sudo -i # not surly
 	apt-get update && apt-get upgrade -y
 	apt-get install software-properties-common && add-apt-repository universe
 	echo -e "====== AUTO install NEED OPENSSL/APACHE/CERTBOT/MARIADB/ANTIVIRUS/FAIL2BAN/PHP for using CMS populare ======\n"
@@ -60,7 +60,10 @@ fi
 #### now configuration DB sql
 # TODO
 
-
+rm -r /var/www/html/*
+echo "HELLO WORLD INSTALL by @Alexonbstudio SYSADMIN" > /var/www/html/index.html
+chown -R www-data:www-data /var/www/html/
+chown -R www-data:www-data /var/www/html/*
 
 
 
@@ -79,3 +82,4 @@ fi
 #deteled old on tmp folder
 rm -rf /tmp/*
 
+exit
