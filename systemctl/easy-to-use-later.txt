@@ -21,8 +21,8 @@ systemctl enable clamav-freshclam
 /lib/systemd/systemd-sysv-install enable clamav-freshclam
 
 ########		FAILTOBAN		########
-systemctl enable faiil2ban
-/lib/systemd/systemd-sysv-install enable faiil2ban
+systemctl enable fail2ban
+/lib/systemd/systemd-sysv-install enable fail2ban
 
 
 #need help systemctl --help
