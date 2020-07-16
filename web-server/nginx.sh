@@ -27,9 +27,12 @@ fi
 
 
 	echo -e "\n\nSystemctl using easier recommandation\n\n"
-	systemctl enable nginx && /lib/systemd/systemd-sysv-install enable nginx
-	systemctl enable clamav-freshclam && /lib/systemd/systemd-sysv-install enable clamav-freshclam
-	systemctl enable faiil2ban && /lib/systemd/systemd-sysv-install enable faiil2ban
+	systemctl enable nginx
+	/lib/systemd/systemd-sysv-install enable nginx
+	systemctl enable clamav-freshclam
+	/lib/systemd/systemd-sysv-install enable clamav-freshclam
+	systemctl enable faiil2ban
+	/lib/systemd/systemd-sysv-install enable faiil2ban
 	echo -e "\n\nThe notice recommand\n\n"
 	
 	
