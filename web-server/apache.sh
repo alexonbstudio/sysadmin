@@ -30,9 +30,12 @@ fi
 	echo -e "\n\n====== The installation is done ======\n\n"
 
 	echo -e "\n\nSystemctl using easier recommandation\n\n"
-	systemctl enable apache2 && /lib/systemd/systemd-sysv-install enable apache2
-	systemctl enable clamav-freshclam && /lib/systemd/systemd-sysv-install enable clamav-freshclam
-	systemctl enable faiil2ban && /lib/systemd/systemd-sysv-install enable faiil2ban
+	systemctl enable apache2 
+	/lib/systemd/systemd-sysv-install enable apache2
+	systemctl enable clamav-freshclam
+	/lib/systemd/systemd-sysv-install enable clamav-freshclam
+	systemctl enable faiil2ban
+	/lib/systemd/systemd-sysv-install enable faiil2ban
 	
 	
 	
