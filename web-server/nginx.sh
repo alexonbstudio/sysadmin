@@ -46,7 +46,7 @@ fi
 
 
 	###### Start now install mysql secure
-	mysql_secure_installation
+	#mysql_secure_installation
 
 
 
@@ -67,8 +67,8 @@ fi
 
 rm -r /var/www/html/*
 echo "HELLO WORLD INSTALL by @Alexonbstudio SYSADMIN" > /var/www/html/index.html
-chown -R www-data:www-data /var/www/html/
-chown -R www-data:www-data /var/www/html/*
+chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/
+chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/*
 
 
 
@@ -78,8 +78,37 @@ chown -R www-data:www-data /var/www/html/*
 cd /etc/nginx/sites-available/
 cp default dev.alexonbstudio.fr
 cp default default.back
+echo "
+server {
+        listen 80;
+        listen [::]:80;
+        root /var/www/html;
+        index index.php index.html;
+
+        server_name _;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        # pass PHP scripts to FastCGI server
+        #location ~ \.php$ {
+        #       include snippets/fastcgi-php.conf;
+        #
+        #       # With php-fpm (or other unix sockets):
+        #       fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        #       # With php-cgi (or other tcp sockets):
+        #       fastcgi_pass 127.0.0.1:9000;
+        #}
+
+		#DENY HTACCESS
+        location ~ /\.ht {
+               deny all;
+        }
+}
+"
 unlink /etc/nginx/sites-enabled/default || rm -rf /etc/nginx/sites-enabled/default
-sudo ln -s /etc/nginx/sites-available/dev.alexonbstudio.fr /etc/nginx/sites-enabled/dev.alexonbstudio.fr
+sudo ln -s /etc/nginx/sites-available/* /etc/nginx/sites-enabled/*
 
 
 
