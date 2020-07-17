@@ -58,15 +58,15 @@ fi
 
 
 	###### Start now install mysql secure
-	mysql_secure_installation
+	#mysql_secure_installation
 
 #### now configuration DB sql
 # TODO
 
 rm -r /var/www/html/*
 echo "HELLO WORLD INSTALL by @Alexonbstudio SYSADMIN" > /var/www/html/index.html
-chown -R www-data:www-data /var/www/html/
-chown -R www-data:www-data /var/www/html/*
+chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/
+chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/*
 
 
 
