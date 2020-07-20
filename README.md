@@ -26,9 +26,9 @@ Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 ### Web necessary LAMP/LEMP
 
-+ [Debian lamp.sh](FULL-AIO/Debian-Web/lamp.sh)	OR [Debian lemp.sh](FULL-AIO/Debian-Web/lemp.sh)
-+ [Ubuntu lamp.sh](FULL-AIO/Ubuntu-Web/lamp.sh)	OR [Ubuntu lemp.sh](FULL-AIO/Ubuntu-Web/lemp.sh)
-+ [CentOS lamp.sh](FULL-AIO/CentOS-Web/lamp.sh)	OR [CentOS lemp.sh](FULL-AIO/CentOS-Web/lemp.sh)
++ Debian [Lamp.sh](FULL-AIO/Debian-Web/lamp.sh)	OR [Lemp.sh](FULL-AIO/Debian-Web/lemp.sh)
++ Ubuntu [Lamp.sh](FULL-AIO/Ubuntu-Web/lamp.sh)	OR [Lemp.sh](FULL-AIO/Ubuntu-Web/lemp.sh)
++ CentOS [Lamp.sh](FULL-AIO/CentOS-Web/lamp.sh)	OR [Lemp.sh](FULL-AIO/CentOS-Web/lemp.sh)
 
 ## Software if you need
 
