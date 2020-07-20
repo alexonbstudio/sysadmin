@@ -1,6 +1,6 @@
 # sysadmin - security - automated (Debian/Ubuntu Latest Version)
 
-last update 20/07/2020 @ 04:55AM Europe/Paris
+last update 20/07/2020 @ 17:20PM Europe/Paris
 Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 
@@ -9,14 +9,12 @@ Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 ### Minecraft
 
-+ [Bedrock](https://github.com/globnations/sysadmin/FULL-AIO/bedrock.sh)
-+ [PMMP](https://github.com/globnations/sysadmin/FULL-AIO/pmmp.sh)
++ [Bedrock](https://github.com/globnations/sysadmin)
++ [PMMP](https://github.com/globnations/sysadmin)
 
 ### Website Project WP
 
-+ Debian [compatible >=PHP7](https://github.com/website-project-WP/sysadmin/FULL-AIO/debian.sh)
-+ Ubuntu [compatible >=PHP7](https://github.com/website-project-WP/sysadmin/FULL-AIO/ubuntu.sh)
-+ CentOS [compatible >=PHP7](https://github.com/website-project-WP/sysadmin/FULL-AIO/centos.sh)
++ [compatible >=PHP7](https://github.com/website-project-WP/sysadmin)
 
 ### Desktp UI remote on server
 
@@ -26,19 +24,30 @@ Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 ### Web necessary LAMP/LEMP
 
-+ Debian [Lamp.sh](FULL-AIO/Debian-Web/lamp.sh)	OR [Lemp.sh](FULL-AIO/Debian-Web/lemp.sh)
-+ Ubuntu [Lamp.sh](FULL-AIO/Ubuntu-Web/lamp.sh)	OR [Lemp.sh](FULL-AIO/Ubuntu-Web/lemp.sh)
-+ CentOS [Lamp.sh](FULL-AIO/CentOS-Web/lamp.sh)	OR [Lemp.sh](FULL-AIO/CentOS-Web/lemp.sh)
++  [Debian](FULL-AIO/Debian-Web)
++  [Ubuntu](FULL-AIO/Ubuntu-Web)
++  [CentOS](FULL-AIO/CentOS-Web)
+
+#### Ubuntu APACHE2 Full AIO with Website Project WP 
+	
+	sudo -i
+	mkdir -p tmp && cd tmp
+	curl -O https://github.com/alexonbstudio/sysadmin/releases/download/aio-ubuntu-0.1/lap-new.sh
+	nano lap-new.sh
+	chmod +x lap-new.sh
+	sh ./lap-new.sh
+	
+#### Ubuntu NGINX Full AIO with Website Project WP
+	
+	sudo -i
+	mkdir -p tmp && cd tmp
+	curl -O https://github.com/alexonbstudio/sysadmin/releases/download/aio-ubuntu-0.1/lep-fix-wp-nginx.sh
+	nano lep-fix-wp-nginx.sh
+	chmod +x lep-fix-wp-nginx.sh
+	sh ./lep-fix-wp-nginx.sh
 
 ## Software if you need
 
-+ iptables/ip6tables or ufw
-+ apache or nginx
-+ clamav
-+ fail2ban
-+ VPN Outline (From by Google)
-+ composer (PHP)
-+ desktop on server
 + Old suggest [Protected Recommend the docs by NSA](Guide-to-the-Secure-Configuration-of-Red-Hat-Enterprise-Linux-5-by-NSA.pdf)
 + info [Different path](different-path.md)
 
