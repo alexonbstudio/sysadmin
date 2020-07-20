@@ -231,7 +231,7 @@ if [ $USER != "root" ]; then
 		exit();
 	?>" > /var/www/${server_final}/index.php
 	
-	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${server_final}/ /var/www/${domain}/
+	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${server_final}/index.php /var/www/${domain}/*
 	
 	cd /var/www/ && mkdir -p nginx && cd nginx && curl -O https://raw.githubusercontent.com/alexonbstudio/website-project/master/nginx/*.conf
 	# config nginx
