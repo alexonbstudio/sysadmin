@@ -9,23 +9,25 @@ Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 ### Minecraft
 
-+ [Bedrock/PMMP](https://github.com/globnations/sysadmin)
++ [Bedrock](https://github.com/globnations/sysadmin/FULL-AIO/bedrock.sh)	[PMMP](https://github.com/globnations/sysadmin/FULL-AIO/pmmp.sh)
 
 ### Website Project WP
 
-+ [compatible >=PHP7](https://github.com/website-project-WP/sysadmin)
++ Debian [compatible >=PHP7](https://github.com/website-project-WP/sysadmin/FULL-AIO/debian.sh)
++ Ubuntu [compatible >=PHP7](https://github.com/website-project-WP/sysadmin/FULL-AIO/ubuntu.sh)
++ CentOS [compatible >=PHP7](https://github.com/website-project-WP/sysadmin/FULL-AIO/centos.sh)
 
 ### Desktp UI remote on server
 
-+ [desktop.sh](FULL-INSTALL/Debian-Web/desktop.sh)
-+ [desktop.sh](FULL-INSTALL/Ubuntu-Web/desktop.sh)
-+ [desktop.sh](FULL-INSTALL/CentOS-Web/desktop.sh)
++ [Debian desktop.sh](FULL-AIO/Debian-Web/desktop.sh)
++ [Ubuntu desktop.sh](FULL-AIO/Ubuntu-Web/desktop.sh)
++ [CentOS desktop.sh](FULL-AIO/CentOS-Web/desktop.sh)
 
 ### Web necessary LAMP/LEMP
 
-+ [lamp.sh](FULL-INSTALL/Debian-Web/lamp.sh)	[lemp.sh](FULL-INSTALL/Debian-Web/lemp.sh)
-+ [lamp.sh](FULL-INSTALL/Ubuntu-Web/lamp.sh)	[lemp.sh](FULL-INSTALL/Ubuntu-Web/lemp.sh)
-+ [lamp.sh](FULL-INSTALL/CentOS-Web/lamp.sh)	[lemp.sh](FULL-INSTALL/CentOS-Web/lemp.sh)
++ [Debian lamp.sh](FULL-AIO/Debian-Web/lamp.sh)	[Debian lemp.sh](FULL-AIO/Debian-Web/lemp.sh)
++ [Ubuntu lamp.sh](FULL-AIO/Ubuntu-Web/lamp.sh)	[Ubuntu lemp.sh](FULL-AIO/Ubuntu-Web/lemp.sh)
++ [CentOS lamp.sh](FULL-AIO/CentOS-Web/lamp.sh)	[CentOS lemp.sh](FULL-AIO/CentOS-Web/lemp.sh)
 
 ## Software if you need
 
