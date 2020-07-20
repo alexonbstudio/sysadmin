@@ -232,6 +232,8 @@ if [ $USER != "root" ]; then
 	?>" > /var/www/${server_final}/index.php
 	
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${server_final}/ /var/www/${domain}/
+	
+	cd /var/www/ && mkdir -p nginx && cd nginx && curl -O https://raw.githubusercontent.com/alexonbstudio/website-project/master/nginx/*.conf
 	# config nginx
 	echo "server {
 			listen 80;
@@ -239,7 +241,7 @@ if [ $USER != "root" ]; then
 			root /var/www/"${domain}";
 			index index.php index.html;
 
-			server_name $domain $www_final;
+			server_name "${domain}" "${www_final}";
 
 			location ~ \.php$ {
 			       include snippets/fastcgi-php.conf;
@@ -253,7 +255,19 @@ if [ $USER != "root" ]; then
 			location / {
 					try_files $uri $uri/ =404;
 			}
-
+			
+			#Website Project WP
+			include /var/www/nginx/block.conf;
+			include /var/www/nginx/email.conf;
+			include /var/www/nginx/general.conf;
+			include /var/www/nginx/index.conf;
+			include /var/www/nginx/law.conf;
+			include /var/www/nginx/partner.conf;
+			include /var/www/nginx/sitemap.conf;
+			include /var/www/nginx/sponsor.conf;
+			include /var/www/nginx/debug.conf;
+			#include /var/www/nginx/seo.conf; #not work
+			
 			#DENY HTACCESS
 			location ~ /\.ht {
 				   deny all;
@@ -265,7 +279,7 @@ if [ $USER != "root" ]; then
 			root /var/www/"${server_final}";
 			index index.php index.html;
 
-			server_name $server_final;
+			server_name "${server_final}";
 
 			location ~ \.php$ {
 			       include snippets/fastcgi-php.conf;
