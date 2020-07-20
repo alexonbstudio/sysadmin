@@ -45,7 +45,7 @@
 	nano /etc/php/7.4/fpm/php.ini
 	cgi.fix_pathinfo = 0 #uncomment this
 
-+ Apache2
++ Apache2 (&/OR litespeed)
 + Nginx
 
 	nano /etc/nginx/nginx.conf
