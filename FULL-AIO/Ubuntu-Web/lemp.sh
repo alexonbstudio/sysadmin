@@ -168,7 +168,7 @@ if [ $USER != "root" ]; then
 	*/
 	$sites = array(
 		'name' => '"${name}"',
-		'domain' => '${domain}', /*domain: exemple.tld*/
+		'domain' => '"${domain}"', /*domain: exemple.tld*/
 		'protocol' => isset($_SERVER[\"HTTPS\"]) ? 'https' : 'http',
 		'template' => 'default',
 		'create' => array(),
