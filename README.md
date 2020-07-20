@@ -9,7 +9,8 @@ Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 ### Minecraft
 
-+ [Bedrock](https://github.com/globnations/sysadmin/FULL-AIO/bedrock.sh)	[PMMP](https://github.com/globnations/sysadmin/FULL-AIO/pmmp.sh)
++ [Bedrock](https://github.com/globnations/sysadmin/FULL-AIO/bedrock.sh)
++ [PMMP](https://github.com/globnations/sysadmin/FULL-AIO/pmmp.sh)
 
 ### Website Project WP
 
@@ -25,9 +26,9 @@ Recommend for sysadmin by @alexonbstudio - Desktop/Server
 
 ### Web necessary LAMP/LEMP
 
-+ [Debian lamp.sh](FULL-AIO/Debian-Web/lamp.sh)	[Debian lemp.sh](FULL-AIO/Debian-Web/lemp.sh)
-+ [Ubuntu lamp.sh](FULL-AIO/Ubuntu-Web/lamp.sh)	[Ubuntu lemp.sh](FULL-AIO/Ubuntu-Web/lemp.sh)
-+ [CentOS lamp.sh](FULL-AIO/CentOS-Web/lamp.sh)	[CentOS lemp.sh](FULL-AIO/CentOS-Web/lemp.sh)
++ [Debian lamp.sh](FULL-AIO/Debian-Web/lamp.sh)	OR [Debian lemp.sh](FULL-AIO/Debian-Web/lemp.sh)
++ [Ubuntu lamp.sh](FULL-AIO/Ubuntu-Web/lamp.sh)	OR [Ubuntu lemp.sh](FULL-AIO/Ubuntu-Web/lemp.sh)
++ [CentOS lamp.sh](FULL-AIO/CentOS-Web/lamp.sh)	OR [CentOS lemp.sh](FULL-AIO/CentOS-Web/lemp.sh)
 
 ## Software if you need
 
