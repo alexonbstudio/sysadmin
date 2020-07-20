@@ -209,6 +209,7 @@
 - what else again more
 - final 1 full scripting
 - CentOS
+- SRE avanced ansible/docker
 
 
 ### Minecraft Gaming
