@@ -158,68 +158,6 @@ if [ $USER != "root" ]; then
 	composer dump-autoload --no-dev
 	composer clearcache
 	
-	#edit file configuration/sites.php
-	echo "<?php
-	/*
-	exemple $sites['show'];
-	exemple $sites['update']['rdf'];
-	exemple $sites['e-mail']['contact'];
-
-	*/
-	$sites = array(
-		'name' => '"${name}"',
-		'domain' => '"${domain}"', /*domain: exemple.tld*/
-		'protocol' => isset($_SERVER[\"HTTPS\"]) ? 'https' : 'http',
-		'template' => 'default',
-		'create' => array(),
-		'update' => array(
-			'rdf' => date('Y-m-d')
-		),
-		'copyright' => array(
-			'frontend' => 'Copyright &copy; '.date('Y'), /*show on template */
-			'rdf' => 'Copyright &copy;' /*show only template seo/txt/rdf*/
-		),
-		'head' => array(
-			'robots' => 'index, follow' /*Only show on template header.php | robots meta*/
-		),
-		'default-timezone' => 'Etc/UTC' /*Docs PHP variable date_default_timezone_set() */
-	);
-
-	$JE_sites = json_encode($sites);
-
-	#Secret hidden debug json
-
-	#####################################
-	#									#
-	#			DATABASE|ADODB			#
-	#									#
-	#####################################
-	/*
-	$hostDB = 'localhost';
-	$nameDB = '';
-	$userDB = '';
-	$passwdDB = '';
-	$portDB = 3306;
-	*/
-
-	#####################################
-	#									#
-	#			Email|SMTP 				#
-	#									#
-	#####################################
-	/*
-	$hostMAIL = 'mail.exemple.tld';
-	$userMAIL = 'user@exemple.tld';
-	$passwdMAIL = '****';
-	$portMAIL = 587;
-	*/
-
-	if (!defined('DS')){
-		define('DS', DIRECTORY_SEPARATOR);
-	}
-
-	?>" > /var/www/${domain}/configuration/sites.php
-	
 	#NOT use 
 	#curl -O https://github.com/alexonbstudio/website-project/archive/1.7.0.tar.gz
 	#tar -zvxf 1.7.0.tar.gz
