@@ -76,19 +76,19 @@ echo "
 	ufw allow proto tcp from any to any port 80,443 
 
 	# loopback
-	ufw allow lo
+#	ufw allow lo
 
 	# VNC
 	ufw allow 5901
 
 	# NAT
-	ufw allow nat
+#	ufw allow nat
 
 	# DNS
 	ufw allow 53
 
 	# ICMP (Ping)
-	ufw allow icmp
+#	ufw allow icmp
 
 	ufw logging on 
 
