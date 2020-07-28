@@ -9,7 +9,7 @@ domain="alexonbstudio.fr" # Replace with this domain name by your own
 server="desktop"
 server_final="$server.$domain"
 
-clear
+
 
 echo "
 #############################################
@@ -138,7 +138,7 @@ echo "
 			root /var/www/html;
 			index index.html;
 
-			server_name "${server_final}";
+			server_name $server_final;
 
 			location / {
 					try_files $uri $uri/ =404;
