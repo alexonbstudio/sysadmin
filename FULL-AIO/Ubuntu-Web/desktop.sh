@@ -101,7 +101,7 @@ echo "
 	chmod o-rwx /home/${SUDO_USER} /home/${USER}
 		
 	
-	apt install -y --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal vnc4server clamav clamav-daemon nginx fail2ban net-tools ufw curl openssl nginx certbot python3-certbot-nginx
+	apt install -y clamav clamav-daemon nginx fail2ban net-tools ufw curl openssl nginx certbot python3-certbot-nginx
 	
 	#anwser Y then enter
 	########		SERVER WEB		########
@@ -156,68 +156,20 @@ echo "
 	systemctl restart nginx	
 	
 	#SSL
-	#certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
+	certbot renew --pre-hook "systemctl stop nginx" --post-hook "systemctl start nginx"
 	certbot -d ${server_final}
 	chmod 0755 /etc/letsencrypt/{live,archive}
-		
-if [ $USER != $SUDO_USER ]; then	
-
-	cp ~/.vnc/xstartup ~/.vnc/xstartup_backup
-	echo "
-#!/bin/sh
-
-# Uncomment the following two lines for normal desktop:
-# unset SESSION_MANAGER
-# exec /etc/X11/xinit/xinitrc
-
-[ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
-[ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
-xsetroot -solid grey
-vncconfig -iconic &
-x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
-x-window-manager &
-
-gnome-panel &
-gnome-settings-daemon &
-metacity &
-nautilus &
-	" > /home/${SUDO_USER}/.vnc/xstartup
-	
-	
-	
-echo "
-[Unit]
-Description=Start vnc4server ubuntu at startup
-After=syslog.target network.target
-
-[Service]
-Type=forking
-User="${SUDO_USER}"
-PAMName=login
-PIDFile=/home/"${SUDO_USER}"/.vnc/%H:%i.pid
-ExecStartPre=-/usr/bin/vncserver -kill :%i > /dev/null 2>&1
-ExecStart=/usr/bin/vncserver -depth 24 -geometry 1280x720 :%i
-ExecStop=/usr/bin/vncserver -kill :%i
-
-[Install]
-WantedBy=multi-user.target
-" > /etc/systemd/system/vncserver@.service
-	systemctl daemon-reload
-	systemctl enable vncserver@.service
-	
-		
 
 	# crontab -e 
 	(crontab -l 2>>/dev/null; echo "
 	@monthly rm -rf /var/log/apt/.log
+	@monthly rm -rf /var/log/nginx/.log
 	@monthly rm -rf /var/log/clamav/.log
 	@monthly rm -rf /var/log/journal/.log
 	@weekly apt update && apt upgrade -y
 	@weekly apt-get update && apt-get upgrade -y
 	@daily systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam
 	* * * */2 * certbot --nginx -d $server_final --non-interactive --force-renewal --quiet && systemctl restart nginx
-	@reboot /usr/bin/vncserver :1
 	") | crontab -	
 	
-fi	
-	
+	cd /home/${SUDO_USER}/ && curl -O 
