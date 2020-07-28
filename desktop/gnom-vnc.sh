@@ -1,6 +1,8 @@
 #!/bin/sh
 
-sudo apt install -y --no-install-recommends ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal tightvncserver
+sudo apt install -y ubuntu-core^ ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal tightvncserver
+	vncserver
+	vncserver -kill :1
 	cp ~/.vnc/xstartup ~/.vnc/xstartup_backup
 	echo "
 #!/bin/sh
@@ -9,6 +11,10 @@ sudo apt install -y --no-install-recommends ubuntu-desktop gnome-panel gnome-set
 # unset SESSION_MANAGER
 # exec /etc/X11/xinit/xinitrc
 
+#export XKL_XMODMAP_DISABLE=1
+unset SESSION_MANAGER
+unset DBUS_SESSION_BUS_ADDRESS
+
 [ -x /etc/vnc/xstartup ] && exec /etc/vnc/xstartup
 [ -r $HOME/.Xresources ] && xrdb $HOME/.Xresources
 xsetroot -solid grey
@@ -16,6 +22,7 @@ vncconfig -iconic &
 x-terminal-emulator -geometry 80x24+10+10 -ls -title "$VNCDESKTOP Desktop" &
 x-window-manager &
 
+gnome-session &
 gnome-panel &
 gnome-settings-daemon &
 metacity &
@@ -47,5 +54,5 @@ WantedBy=multi-user.target
 		
 
 	# crontab -e 
-	(crontab -l 2>>/dev/null; echo "@reboot /usr/bin/vncserver :1") | crontab -	
+	(crontab -l 2>>/dev/null; echo "@reboot vncserver -geometry 1280x720 -depth 24") | crontab -	
 	
