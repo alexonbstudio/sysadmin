@@ -174,5 +174,5 @@ echo "
 	") | crontab -	
 	
 	cd /home/${SUDO_USER}/ && curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/desktop/gnom-vnc.sh
-	
+	chown -hR ${SUDO_USER} /home/${SUDO_USER}/gnom-vnc.sh
 	echo "I return the user normal  (not root user) access to cd /home/$SUDO_USER/ & then lunch ./gnom-vnc.sh"
