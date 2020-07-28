@@ -5,6 +5,7 @@ ip4_local="" # Local IPV4 of server exemple 10.0.0.1
 ip6_local="" # Local IPV6 of server exemple 111dd:c15dv:15vd1::100
 ip4_myIP="" # Your own IPv4 for SSH exemple 10.0.0.1
 ip6_myIP="" # Your own IPv6 for SSH exemple 111dd:c15dv:15vd1::100
+domain="alexonbstudio.fr" # Replace with this domain name by your own
 server="desktop"
 server_final="$server.$domain"
 
@@ -172,4 +173,6 @@ echo "
 	* * * */2 * certbot --nginx -d $server_final --non-interactive --force-renewal --quiet && systemctl restart nginx
 	") | crontab -	
 	
-	cd /home/${SUDO_USER}/ && curl -O 
+	cd /home/${SUDO_USER}/ && curl -O https://raw.githubusercontent.com/alexonbstudio/sysadmin/master/desktop/gnom-vnc.sh
+	
+	echo "I return the user normal  (not root user) access to cd /home/$SUDO_USER/ & then lunch ./gnom-vnc.sh"
