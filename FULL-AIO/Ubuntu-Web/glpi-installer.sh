@@ -23,28 +23,29 @@ sudo apt update
 sudo apt upgrade
 
 
-sudo apt install apache2
+sudo apt install apache2 mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-common php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-mysql php7.4-gd php7.4-imap php7.4-ldap php-cas php7.4-bcmath php7.4-xml php7.4-cli php7.4-zip php7.4-sqlite3 php7.4-apcu php7.4-bz2
 
 
 sudo systemctl stop apache2.service
 sudo systemctl start apache2.service
 sudo systemctl enable apache2.service
-
-
-sudo apt install mariadb-server mariadb-client
-
-
 sudo systemctl stop mariadb.service
 sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
 
+
+
+#########
 sudo mysql_secure_installation
 
-
-sudo apt install php7.4 libapache2-mod-php7.4 php7.4-common php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-mysql php7.4-gd php7.4-imap php7.4-ldap php-cas php7.4-bcmath php7.4-xml php7.4-cli php7.4-zip php7.4-sqlite3 php7.4-apcu php7.4-bz2
-
-
-sudo nano /etc/php/7.4/apache2/php.ini
+#Set root password? [Y/n]: Y
+#New password: Nouveau mot de passe
+#Re-enter new password: Nouveau mot de passe
+#Remove anonymous users? [Y/n]: Y
+#Disallow root login remotely? [Y/n]: Y
+#Remove test database and access to it? [Y/n]: Y
+#Reload privilege tables now? [Y/n]: Y
+#sudo nano /etc/php/7.4/apache2/php.ini
 
 #
 #file_uploads = On
@@ -105,5 +106,4 @@ sudo nano /etc/hostname
 ls /etc/apache2/sites-enabled/
 sudo rm /etc/apache2/sites-enabled/000-default.conf
 
-sudo rm -rf /var/www/glpi/install/
-sudo rm -rf /tmp
+sudo rm -rf /var/www/glpi/install/ && sudo rm /var/www/html/phpinfo.php
