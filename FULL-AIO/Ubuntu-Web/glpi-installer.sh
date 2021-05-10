@@ -14,39 +14,19 @@ server_final="$server.$domain"
 echo "
 #############################################
 #											#
-#	Copyright 2020 BY AlexonbStudio			#
+#	Copyright 2021 BY AlexonbStudio			#
 #	final GLPI install  					#
 #											#
 #############################################
 "
-sudo apt update
-sudo apt upgrade
+sudo apt update && sudo apt upgrade -y
 
 
-sudo apt install apache2 mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-common php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-mysql php7.4-gd php7.4-imap php7.4-ldap php-cas php7.4-bcmath php7.4-xml php7.4-cli php7.4-zip php7.4-sqlite3 php7.4-apcu php7.4-bz2
+sudo apt install -y  curl openssl apache2 certbot python3-certbot-apache2 mariadb-server mariadb-client php7.4 libapache2-mod-php7.4 php7.4-common php7.4-gmp php7.4-curl php7.4-intl php7.4-mbstring php7.4-xmlrpc php7.4-mysql php7.4-gd php7.4-imap php7.4-ldap php-cas php7.4-bcmath php7.4-xml php7.4-cli php7.4-zip php7.4-sqlite3 php7.4-apcu php7.4-bz2
 
-
-sudo systemctl stop apache2.service
-sudo systemctl start apache2.service
-sudo systemctl enable apache2.service
-sudo systemctl stop mariadb.service
-sudo systemctl start mariadb.service
-sudo systemctl enable mariadb.service
-
-
-
-#########
-sudo mysql_secure_installation
-
-#Set root password? [Y/n]: Y
-#New password: Nouveau mot de passe
-#Re-enter new password: Nouveau mot de passe
-#Remove anonymous users? [Y/n]: Y
-#Disallow root login remotely? [Y/n]: Y
-#Remove test database and access to it? [Y/n]: Y
-#Reload privilege tables now? [Y/n]: Y
-#sudo nano /etc/php/7.4/apache2/php.ini
-
+sudo systemctl enable apache2.service && /lib/systemd/systemd-sysv-install enable apache2
+sudo systemctl enable mariadb.service && /lib/systemd/systemd-sysv-install enable mariadb
+echo "
 #
 #file_uploads = On
 #allow_url_fopen = On
@@ -57,9 +37,26 @@ sudo mysql_secure_installation
 #max_input_vars = 1500
 #date.timezone = Europe/Paris
 #
+"
+sudo cp /etc/php/7.4/apache2/php.ini.old && echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php && sudo nano /etc/php/7.4/apache2/php.ini 
 
-sudo nano /var/www/html/phpinfo.php
-<?php phpinfo( ); ?>
+
+
+
+echo "
+#Set root password? [Y/n]: Y
+#New password: Nouveau mot de passe
+#Re-enter new password: Nouveau mot de passe
+#Remove anonymous users? [Y/n]: Y
+#Disallow root login remotely? [Y/n]: Y
+#Remove test database and access to it? [Y/n]: Y
+#Reload privilege tables now? [Y/n]: Y
+
+"
+
+#########
+sudo mysql_secure_installation
+
 
 
 sudo mysql -u root -p
@@ -76,8 +73,7 @@ sudo mv glpi /var/www/glpi
 sudo chown -R www-data:www-data /var/www/glpi/
 sudo chmod -R 755 /var/www/glpi/
 
-sudo nano /etc/apache2/sites-available/glpi.conf
-
+echo "
 <VirtualHost *:80>
      ServerAdmin admin@example.com
      DocumentRoot /var/www/glpi
@@ -94,16 +90,11 @@ sudo nano /etc/apache2/sites-available/glpi.conf
      CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
+" > /etc/apache2/sites-available/glpi.conf
 
+sudo a2ensite glpi.conf && sudo a2enmod rewrite && sudo systemctl restart apache2.service
 
-
-
-sudo a2ensite glpi.conf
-sudo a2enmod rewrite
-sudo systemctl restart apache2.service
-
-sudo nano /etc/hostname
-ls /etc/apache2/sites-enabled/
-sudo rm /etc/apache2/sites-enabled/000-default.conf
+echo "hostname" > /etc/hostname
+ls /etc/apache2/sites-enabled/ && udo rm /etc/apache2/sites-enabled/000-default.conf
 
 sudo rm -rf /var/www/glpi/install/ && sudo rm /var/www/html/phpinfo.php
